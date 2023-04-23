@@ -39,8 +39,11 @@ let alphabetString = 'abcdefghijklmnopqrstuvwxyz';
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
+let abcArray = alphabetString.split(''); {
+       console.log(abcArray);
 
-
+}    
+// The split method will take in a string and returns it as an array?
 
 
 
@@ -58,9 +61,11 @@ let alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
-
-
+let alphabetArray.reverse(); {
+       console.log(alphabetArray.join(''));  
+}  
+ 
+// The reverse method starts with an array and returns it as an reversed array
 
 
 
@@ -81,10 +86,13 @@ let array1 = [1, 5, 6, 9, 10, 14];
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
-
-
-
+console.log("Step 1: Array1 ", array1);
+console.log("Step 2: 3rd element ", array1[2]);                    
+console.log("Step 3: Last element ", array1[array1.length - 1]);   
+array1.push(16, 3);   // Add 16 and 3 to array1 I think
+console.log("Step 4: Updated array1 ", array1);        // Print the updated array
+console.log("Step 5: 3rd element", array1[2]);                     
+console.log("Step 6: Last element", array1[array1.length - 1]); // Print the last element again. 
 
 
 // Question 4: Todo List
@@ -101,9 +109,19 @@ Question 4: Todo List \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
+let myTodoList = []; // Created variable called myTodoList that holds an empty array, nothing inside the []
 
+myTodoList.push('item1', 'item2', 'item3'); // Added the three todo items (elements) to the array using a built-in array method
+console.log('Step 2: Pushed 3 items to myTodoList ', myTodoList); // Pushed the 3 items to todo
 
+myTodoList.splice(1, 1); // Removed the second item (element) in the array as directed in step 3
+console.log('Step 3: Removed second item from myTodoList ', myTodoList);
 
+let yourTodoList = ['item4', 'item5']; // Created another array, yourTodoList, and add two todo items
+console.log('Step 4: yourTodoList ', yourTodoList);
+
+let ourTodoList1 = [...myTodoList, ...yourTodoList]; 
+console.log("Step 5: solution 1 -- ourTodoList1: ", ourTodoList1); 
 
 
 
@@ -122,10 +140,14 @@ Question 5: isEven  \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
-
-
-
+function isEven(x) {
+       if (x % 2 === 0) {    // If the remainder of x divided by 2 is 0, then x is even
+           return true;
+       } else {              // If the remainder of x divided by 2 is not 0, then x is odd
+           return false;
+       }
+   }
+// This one was super hard, and I had to really concentrate, I hope it's right! 
 
 /* ↑ YOUR CODE HERE ↑ */
 
@@ -151,7 +173,13 @@ Question 6: addingMachine \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
+function addingMachine(array) {
+       let sum = 0;                                 
+       for (let i = 0; i < array.length; i++) {     
+         sum += array[i];                           
+       }
+       return sum;                                 // return the sum variable, this one took me awhile to catch onto
+     }
 
 
 
@@ -184,7 +212,19 @@ Question 7: reverse \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
+function reverse(x) {                              // if x is our parameter  
+       if (typeof x === 'boolean') {               // if x is a boolean
+           return !x;                              // return the opposite of x
+       } else if (typeof x === 'number') {         // if x is a number
+          return x.toString().split('').reverse().join('');    // return the reverse of x
+       } else if (typeof x === 'string') {         // if x is a string
+           return x.split('').reverse().join('');  // return the reverse of x
+       } else if (Array.isArray(x)) {              // if x is an array
+           return x.reverse();                     // return the reverse of x
+       } else {                                    // if x is not a boolean, number, string, or array
+           return false;                           // return false
+       }                                           // it really helps me right it out as I am doing the process to get it much better     
+   }
 
 
 
@@ -217,7 +257,12 @@ Question 8: removeElements \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
+function removeElements(array) {
+       while (array.length > 0) {   // if / while the array is not empty
+           array.pop();            // remove the last element of the array with pop
+       }
+       return array;               // return the array should work
+   }
 
 
 
@@ -244,7 +289,15 @@ Question 9: whichArrayIsLonger  \n`);
  * 
  * 
  * ↓ YOUR CODE HERE ↓ */
-
+function whichArrayIsLonger(array1, array2) {
+       if (array1.length > array2.length) {        // if array1, IS longer than array2
+           return array1;                          // than we return array1
+       } else if (array1.length < array2.length) { // if array2 IS longer than array1
+           return array2;                          // that we would return array2
+       } else {                                    // if array1 and array2 ARE THE SAME length
+           return false;                           // we return it false
+       }
+   }
 
 
 
@@ -255,20 +308,3 @@ Question 9: whichArrayIsLonger  \n`);
 //console.log(whichArrayIsLonger([1, 2, 3, 4, 5], [1, 2, 3, 4]));    //should return [1, 2, 3, 4, 5]
 //console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4, 5, 6])); ///should return [1, 2, 3, 4, 5, 6]
 //console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4]));       //should return false (because they are the same length)
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-New-FrontEnd-Labs/week03Lab.js at main · dslnikkiabq/New-FrontEnd-Labs
